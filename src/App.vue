@@ -3,8 +3,8 @@
     <h1>Brewdog Beers</h1>
       <beer-list :beers='beers'></beer-list>
       <beer-detail :beer='selectedBeer'></beer-detail>
+      <button v-if="selectedBeer && !favouriteBeers.includes(selectedBeer)" v-on:click="addToFavourites">Add to fave</button>
       <favourite-beer-list :favouriteBeers='favouriteBeers'></favourite-beer-list>
-    <button v-if="selectedBeer && !favouriteBeers.includes(selectedBeer)" v-on:click="addToFavourites">Add to fave</button>
   </div>
 
 </template>
@@ -37,6 +37,10 @@ export default {
     fetch('https://api.punkapi.com/v2/beers')
     .then(res => res.json())
     .then(data => this.beers = data)
+
+    // this.vm.$nextTick(fetch('https://api.punkapi.com/v2/beers')
+    // .then(res => res.json())
+    // .then(data => this.beers = data))
 
     eventBus.$on('beer-selected', (beer) => {
       this.selectedBeer = beer;

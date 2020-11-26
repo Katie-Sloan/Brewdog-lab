@@ -3,10 +3,25 @@
       <h2> {{beer.name}} </h2>
       <p> ABV: {{beer.abv}}% </p>
       <p> Description: {{beer.description}} </p>
-      <!-- <p> Food Pairings: </p>
-      <ul>
-          <li v-for="food in beer_food>{{food}}</li>
-      </ul> -->
+      <p> Ingredients: </p>
+      <p> Malt: </p>
+      <li v-for="ingredient in beer.ingredients.malt">
+          {{ingredient.name}}
+          ({{ingredient.amount.value}}
+          {{ingredient.amount.unit}})
+      </li>
+      <p> Hops: </p>
+      <li v-for="ingredient in beer.ingredients.hops">
+          {{ingredient.name}}
+          ({{ingredient.amount.value}}
+          {{ingredient.amount.unit}})
+          <ul>
+            <li> When to add: {{ingredient.add}} </li>
+            <li> Attribute: {{ingredient.attribute}} </li>
+          </ul>
+      </li>
+      <p> Yeast: </p>
+      <p> {{beer.ingredients.yeast}} </p>
   </div>
 </template>
 

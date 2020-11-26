@@ -30,5 +30,7 @@ export default {
 </script>
 
 <style>
-
+.small-beer {
+    height: 100px
+}
 </style>
