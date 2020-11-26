@@ -14,7 +14,7 @@ export default {
     name: "beer-list",
     data(){
         return {
-            "selectedBeer": {},
+            selectedBeer: {},
         }
     },
     props: ["beers"],
